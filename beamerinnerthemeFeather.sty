@@ -35,9 +35,9 @@
 
 % title page
 %% definitions for fonts of the different elements
-  
+
                \setbeamerfont{institute}{family=\rmfamily, size = \footnotesize}
-               \setbeamerfont{title}{family=\rmfamily, size = \Large} 
+               \setbeamerfont{title}{family=\rmfamily, size = \Large}
                \setbeamerfont{subtitle}{family=\rmfamily, size = \large}
                \setbeamerfont{author}{family=\rmfamily, size = \normalsize}
                \setbeamerfont{date}{family=\rmfamily, size = \footnotesize}
@@ -63,9 +63,9 @@
 
          \end{minipage}
    }
-  
+
 %----------------------------------------------------------------------------------------------------------------------------------
-  
+
 % final page
 
                   \defbeamertemplate{final page}{text}[1]
@@ -82,20 +82,20 @@
    }
 
 %----------------------------------------------------------------------------------------------------------------------------------
-  
+
 % add the feather to the background of the titlepage and the final page
 
                   \newcommand{\1}
    {
                   \setbeamertemplate{background}
       {
-                  \includegraphics[width=\paperwidth,height=\paperheight]{Feathergraphics/1}
+                  \includegraphics[width=\paperwidth,height=\paperheight]{img/1}
                   \tikz[overlay] \fill[fill opacity=0.75,fill=white] (0,0) rectangle (-\paperwidth,\paperheight);
        }
     }
 
 %----------------------------------------------------------------------------------------------------------------------------------
-  
+
 % use numbers instead of a picture for the references
 
                   \setbeamertemplate{bibliography item}[text]
