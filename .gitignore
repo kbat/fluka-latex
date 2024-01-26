@@ -1,0 +1,10 @@
+.gitignore
+*~
+*.bak
+main.snm
+main.aux
+main.toc
+main.out
+main.nav
+main.log
+main.pdf
