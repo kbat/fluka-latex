@@ -2,7 +2,7 @@
 
 all: main.pdf
 
-main.pdf: main.tex
+main.pdf: main.tex *.sty
 	@pdflatex $<
 
 clean:
