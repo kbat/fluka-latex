@@ -3,15 +3,15 @@
 \mode<presentation>{%
   % title page
   %% definitions for fonts of the different elements
-  \setbeamerfont{institute}{family=\rmfamily, size = \footnotesize}
-  \setbeamerfont{title}{family=\rmfamily, size = \Large}
-  \setbeamerfont{subtitle}{family=\rmfamily, size = \large}
-  \setbeamerfont{author}{family=\rmfamily, size = \normalsize}
-  \setbeamerfont{date}{family=\rmfamily, size = \footnotesize}
+  \setbeamerfont{institute}{family=\comicneue, size = \large}
+  \setbeamerfont{title}{family=\comicneue, series=\bfseries, size = \Huge}
+  \setbeamerfont{subtitle}{family=\comicneue, size = \large}
+  \setbeamerfont{date}{family=\comicneue, series=\bfseries, size = \large}
+  \setbeamerfont{author}{family=\comicneue, size = \large}
 
   \setbeamertemplate{title page}{%
     \begin{minipage}[c][\textheight][c]{\textwidth}
-      \vspace*{1ex}
+      \vspace*{\baselineskip}
       \hspace{-0.5cm}\includegraphics[width=0.4\linewidth]{figs/flukanbg.png}
 
       \vfill
@@ -19,15 +19,15 @@
       %          {\usebeamerfont{institute}\insertinstitute}\vspace*{30pt}
 
       \begin{center}
-        \usebeamerfont{title}\usebeamercolor[fg]{title}\huge\textbf{\inserttitle}
+        {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
       \end{center}
 
       \vfill
 
       \begin{flushright}
-        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}
-
-        {\usebeamerfont{date}\insertdate}\vspace*{\baselineskip}
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle} \\ \vspace{0.5\baselineskip}
+        {\usebeamerfont{date}\usebeamercolor[fg]{subtitle}\insertdate}%
+        \vspace*{\baselineskip}
       \end{flushright}
 
 %      \vspace*{30pt}
