@@ -36,24 +36,34 @@
 
     \end{minipage}
   }
+  \addtobeamertemplate{title page}{
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[above right,inner sep=0pt] at (current page.south west)
+           {
+             \includegraphics[width=\paperwidth]{figs/1}
+             \tikz[overlay] \fill[fill opacity=0.75,fill=white] (0,0) rectangle (-\paperwidth,\paperheight);
+           };
+    \end{tikzpicture}
+  }{}
 
   \defbeamertemplate{final page}{text}[1]{%
     \begin{minipage}[c][\textheight][c]{\textwidth}
-      \centering
-      #1
+      \begin{center}
+        {\usebeamerfont{title}\usebeamercolor[fg]{title}#1}
+      \end{center}
     \end{minipage}
   }
 
-  \newcommand{\finalpage}[1]{%
-    \setbeamertemplate{final page}[text]{#1}
-    \usebeamertemplate{final page}
+  \NewCommandCopy{\oldhref}{\href}
+  \renewcommand{\href}[2]{
+    \oldhref{#1}{{\usebeamercolor[bg]{FLUKA}#2}}
   }
 
-  \newcommand{\1}{%
-    \setbeamertemplate{background}{%
-      \includegraphics[width=\paperwidth,height=\paperheight]{figs/1}
-      \tikz[overlay] \fill[fill opacity=0.75,fill=white] (0,0) rectangle (-\paperwidth,\paperheight);
-    }
+  \NewDocumentCommand\finalpage{}{%
+    \begin{frame}[plain,noframenumbering]
+      \setbeamertemplate{final page}[text]{\oldhref{http://www.fluka.org}{www.fluka.org}}
+      \usebeamertemplate{final page}
+    \end{frame}
   }
 
   \setbeamertemplate{bibliography item}[text]
