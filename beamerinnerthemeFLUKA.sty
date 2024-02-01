@@ -55,7 +55,7 @@
   }
 
   \NewCommandCopy{\oldhref}{\href}
-  \renewcommand{\href}[2]{
+  \RenewDocumentCommand\href{mm}{
     \oldhref{#1}{{\usebeamercolor[bg]{FLUKA}#2}}
   }
 

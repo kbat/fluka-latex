@@ -76,7 +76,7 @@
 }
 
 %% coordinate the fancy header background
-\newcommand{\featherheaderbackground}[0]{
+\NewDocumentCommand\featherheaderbackground{}{%
   \begin{tikzpicture}[overlay]
 
     \coordinate (UL) at (0,0); %upper left corner of the slide
