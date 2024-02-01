@@ -1,242 +1,151 @@
-\documentclass[10pt]{beamer}
-\usetheme[
-%%% option passed to the outer theme
-%    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (moving is deault)
-  ]{FLUKA}
-
-% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
-
-% Change the bar colors:
-%\setbeamercolor{FLUKA}{fg=red!20,bg=red}
-
-% Change the color of the structural elements:
-%\setbeamercolor{structure}{fg=red}
-
-% Change the frame title text color:
-%\setbeamercolor{frametitle}{fg=blue}
-
-% Change the normal text color background:
-%\setbeamercolor{normal text}{fg=black,bg=gray!10}
-
-%-------------------------------------------------------
-% INCLUDE PACKAGES
-%-------------------------------------------------------
-
+\documentclass[aspectratio=169]{beamer}
+\usetheme{FLUKA}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
-\usepackage{helvet}
 
-%-------------------------------------------------------
-% DEFFINING AND REDEFINING COMMANDS
-%-------------------------------------------------------
-
-% colored hyperlinks
-\newcommand{\chref}[2]{
-  \href{#1}{{\usebeamercolor[bg]{FLUKA}#2}}
+\usepackage{pgfplots} % for tikz images
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
 }
 
-%-------------------------------------------------------
-% INFORMATION IN THE TITLE PAGE
-%-------------------------------------------------------
+\usepackage{lipsum}
 
-\title[] % [] is optional - is placed on the bottom of the sidebar on every slide
-{ % is placed on the title page
-      \textbf{The FLUKA Beamer Theme}
+\title{Your lecture title}
+
+\subtitle{23rd FLUKA Beginner's Course \\ Lanzhou University, \\ Lanzhou, China}
+\date{June 2--7, 2024}
+
+% Fill the author/institute even though they are currently not shown in the slides
+\author{Your Name}
+\institute[Your Short Institute]{Your Full Institute}
+
+\AtBeginSection[]{%
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
 }
-
-\subtitle
-{
-      \textbf{inspired by the Feather theme \\ by Lilyana Vankova}
-}
-
-%% \author[Lilyana Vankova]
-%% {      Lilyana Vankova \\
-%%       {\ttfamily lilqna.v@gmail.com}
-%% }
-
-%% \institute[]
-%% {
-%%       Faculty of Mathematics, Informatics and Information Technologies\\
-%%       Plovdiv University ``Paisii Hilendarski''\\
-
-%%   %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
-%% }
-
-\date{\today}
-
-%-------------------------------------------------------
-% THE BODY OF THE PRESENTATION
-%-------------------------------------------------------
 
 \begin{document}
 
-%-------------------------------------------------------
-% THE TITLEPAGE
-%-------------------------------------------------------
+\begin{frame}[plain]
+\maketitle
+\end{frame}
 
-{\1% % this is the name of the PDF file for the background
-\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
-  \titlepage % call the title page information from above
-\end{frame}}
-
-
-\begin{frame}{Content}{}
+\begin{frame}{Outline}
 \tableofcontents
 \end{frame}
 
-%-------------------------------------------------------
-\section{Introduction}
-%-------------------------------------------------------
-\subsection{License}
-\begin{frame}{Introduction}{License}
-%-------------------------------------------------------
+ \section{Equation}
+ \begin{frame}{\secname}
+   \centering
+   \Huge
+   $$
+   u(\rho,t) = J_0(k\rho) \cos(2\pi f t)
+   $$
+ \end{frame}
 
-  \begin{itemize}
-    \item<1-> The FLUKA image is not covered by copyright rules. I have used the image from \chref{http://www.vectors-free.com/}{http://www.vectors-free.com/}. You are allowed to use the FLUKA image for any purposes.
-    \item<2-> The rest of the theme is provided under the GNU General Public License v. 3 (GPLv3) \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}. This means that you can redistribute it and/or modify it under the same license.
-  \end{itemize}
-\end{frame}
+ \section{Matrix}
+ \begin{frame}{\secname}
+   \centering
+   \Huge
+   $$
+   \mu = \left(
+     \begin{array}{ccc}
+       \mu_{1} & -jk & 0 \\
+       jk & \mu_{1} & 0 \\
+       0 & 0 & 1
+     \end{array}
+   \right)
+   $$
+ \end{frame}
 
-%-------------------------------------------------------
-\section{Installation}
-%-------------------------------------------------------
-\subsection{Source files}
-\begin{frame}{Installation}{Source files}
-%-------------------------------------------------------
+\section{Examples}
+ \begin{frame}{\secname}
+   \only<1>{
+     \framesubtitle{Enumerate}
+     \begin{enumerate}
+     \item en
+     \item tv\aa
+     \item tre
+     \end{enumerate}
+   }
+   \only<2>{
+     \framesubtitle{Itemize}
+     \begin{itemize}
+     \item tro
+     \item hopp
+     \item k\"arlek
+     \end{itemize}
+   }
+   \only<3>{
+     \framesubtitle{Block}
+     \begin{block}{Block title}
+       text inside block
+     \end{block}
+   }
+   \only<4>{
+     \framesubtitle{Example}
+     \begin{example}
+       text inside example
+     \end{example}
+   }
+   \only<5>{
+     \framesubtitle{Quote}
+     \begin{exampleblock}{}
+       ``The first principle is that you must not fool yourself~--- and you are the easiest person to fool.''
+       \vskip 5mm
+       \hspace*\fill{\small--- Richard Feynman}
+     \end{exampleblock}
+   }
+   \only<6>{
+     \framesubtitle{Table}
+     \centering
+     \begin{tabular}{ccc}
+       \toprule
+        $A$ & $B$ & $A\mathbin{\oplus}B$ \\
+       \midrule
+       0 & 0 & 0 \\
+       0 & 1 & 1 \\
+       1 & 0 & 1 \\
+       1 & 1 & 0 \\
+       \bottomrule
+      \end{tabular}
+   }
+   \only<7>{
+     \framesubtitle{TikZ picture}
+     \centering
+     \begin{tikzpicture}
+       \begin{axis}[every axis plot post/.append style={mark=none,domain=-2:3,samples=50,smooth},
+         axis x line*=bottom,
+         axis y line*=left,
+         enlargelimits=upper,
+         xlabel=$x$,
+         ylabel=$y$]
+         \addplot+[ultra thick] {gauss(0,0.5)};
+         \addplot+[ultra thick] {gauss(1,0.75)};
+       \end{axis}
+     \end{tikzpicture}
+   }
+ \end{frame}
 
-\begin{block}{}
-The theme contains 4 source files:
-  \begin{itemize}
-    \item {\tt beamercolorthemeFLUKA.sty}
-    \item {\tt beamerouterthemeFLUKA.sty}
-    \item {\tt beamerinnerthemeFLUKA.sty}
-    \item {\tt beamerthemeFLUKA.sty}
-  \end{itemize}
-\end{block}
-\end{frame}
+ \section{Bibliography}
+ \begin{frame}{\secname}
+   \begin{thebibliography}{3}
+     \beamertemplatearticlebibitems
+   \bibitem{Tantau2010}
+     Till Tantau, Joseph Wright, Vedran Mileti\'c
+     \newblock The BEAMER class User Guide
+     \newblock \href{http://bitbucket.org/rivanvx/beamer}{http://bitbucket.org/rivanvx/beamer}
+     \newblock 2010
 
-%-------------------------------------------------------
-\subsection{Local and Global installation}
-\begin{frame}{Installation}{Local and Global installation}
-%-------------------------------------------------------
-  The theme can be installed for \textbf{local} or \textbf{global} use.
-  \pause
-  \begin{block}{Local Installation}
-  \begin{itemize}
-    \item Local installation is the simplest way of installing the theme.
-    \item You need to placing the 4 source files in the same folder as your presentation. When you download the theme, the 4 theme files are located in the {\tt local} folder.
-  \end{itemize}
-  \end{block}
+     \beamertemplatebookbibitems
+   \bibitem{Book}
+     Book author
+     \newblock{Book title}
+     \newblock{Year}
+   \end{thebibliography}
+ \end{frame}
 
-  \begin{block}{Global Installation}
-  \begin{itemize}
-     \item If you wish to make the theme globally available, you must put the files in your local latex directory tree. The location of the root of the local directory tree depends on your operating system and the latex distribution.
-     \item Detailed steps on how to proceed installation under various operating systems can be found at Beamer documentation.
-  \end{itemize}
-  \end{block}
-\end{frame}
-
-
-%-------------------------------------------------------
-\subsection{Required Packages}
-\begin{frame}{Installation}{Required Packages}
-%-------------------------------------------------------
-
-  For using the FLUKA Theme you will need the Bemaer class installed and the following 2 packages
-  \begin{itemize}
-    \item TikZ\footnote{TikZ is a package for creating beautiful graphics. Have a look at these \chref{http://www.texample.net/tikz/examples/}{online examples} or the \chref{http://tug.ctan.org/tex-archive/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{pgf user manual}.}
-    \item calc
-  \end{itemize}
-  Due to the fact that the packages are very common they should be included in your latex distribution in the first place.
-\end{frame}
-
-%-------------------------------------------------------
-\section{User Interface}
-\subsection{Loading the Theme and Theme Options}
-\begin{frame}{User Interface}{Loading the Theme and Theme Options}
-%-------------------------------------------------------
-
-  \begin{block}{The Presentation Theme}
-    The FLUKA Theme can be loaded in a familiar way. In the reamble of your {\tt tex} file you must type\\ \vspace{5pt}
-    {\tt \textbackslash usetheme[<options>]\{FLUKA\}}\\ \vspace{5pt}
-    The presentation theme loads the inner, outer and color FLUKA theme files and passes the {\tt <options>} on to these files.
-  \end{block}
-  \begin{block}{The Inner and Outher Themes}
-    If you wish you can load only the inner, or the outher theme directly by\\ \vspace{5pt}
-    {\tt \textbackslash useinnertheme\{FLUKA\}} (and it has no options)\\ \vspace{5pt}
-    {\tt \textbackslash useoutertheme[<options>]\{FLUKA\}} (it has one option)\\
-    \hspace{20pt}{\tt progressstyle=\{fixedCircCnt or movingCircCnt\}} \\
-    \begin{itemize}
-    \item which set how the progress is illustrated;
-    \item the value {\tt movingCircCnt} is the default.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}{User Interface}{Loading the Theme and Theme Options}
-
-  \begin{block}{The Color Theme}
-    Also you can load only the color theme by writing in the preamble of the {\tt tex} file
-
-    \vspace{5pt}
-
-    \begin{itemize}
-    \item {\tt \textbackslash usecolortheme\{FLUKA\}}
-    \end{itemize}
-
-    \vspace{5pt}
-
-    ...or to change the colors of the various elements in the theme
-
-    \vspace{5pt}
-    \begin{itemize}
-    \item Change the bar colors: \\
-    {\tt \textbackslash setbeamercolor \{FLUKA\}\{fg=<color>, bg=<color>\}}
-
-    \vspace{2pt}
-
-    \item Change the color of the structural elements: \\
-    {\tt \textbackslash setbeamercolor\{structure\}\{fg=<color>\}}
-
-    \vspace{2pt}
-
-    \item Change the frame title text color:\\
-    {\tt \textbackslash setbeamercolor\{frametitle\}\{fg=<color>\}}
-
-    \vspace{2pt}
-
-    \item Change the normal text color background:
-    {\tt \textbackslash setbeamercolor\{normal text\}\{fg=<color>, bg=<color>\}}
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-
-%-------------------------------------------------------
-\subsection{FLUKA image}
-\begin{frame}{User Interface}{The FLUKA Background Image}
-%-------------------------------------------------------
-
-\begin{block}{The FLUKA Background Image}
-    \begin{itemize}
-    \item In FLUKA theme, the title page frame and the last frame have the FLUKA image as the background image.
-    \item The FLUKA background image can be produced to any frame by wrating on the begining at the choosen frame the following
-    \end{itemize}
-
-    \vspace{5pt}
-
-  {\tt \{\textbackslash 1bg\\
-    \textbackslash begin\{frame\}[<options>]\{Frame Title\}\{Frame Subtitle\}\\
-    \ldots\\
-    \textbackslash end\{frame\}\}}
-\end{block}
-\end{frame}
-
-
-{\1
-\begin{frame}[plain,noframenumbering]
-  \finalpage{Thank you for using FLUKA Beamer Theme!}
-\end{frame}}
-
+ \finalpage
 \end{document}
