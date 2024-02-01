@@ -59,6 +59,10 @@
     \oldhref{#1}{{\usebeamercolor[bg]{FLUKA}#2}}
   }
 
+  \NewDocumentCommand\copyr{mm}{%
+    \textcolor{beamer@headercolor}{[{\tiny \oldhref{#1}{#2}}]}
+  }
+
   \NewDocumentCommand\finalpage{}{%
     \begin{frame}[plain,noframenumbering]
       \setbeamertemplate{final page}[text]{\oldhref{http://www.fluka.org}{www.fluka.org}}
