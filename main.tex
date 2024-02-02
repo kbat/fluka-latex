@@ -1,3 +1,5 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
 \documentclass[aspectratio=169]{beamer}
 \usetheme{FLUKA}
 \usepackage[utf8]{inputenc}
@@ -9,7 +11,8 @@
   \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
 }
 
-\usepackage{lipsum}
+% remove if you do not need them
+\usetikzlibrary{calc,positioning}
 
 \title{Your lecture title}
 
@@ -34,6 +37,39 @@
 
 \begin{frame}{Outline}
 \tableofcontents
+\end{frame}
+
+\section{Colours}
+\begin{frame}{\secname}
+  \centering
+  \begin{tikzpicture}
+    \def \columnWidth {10};
+    \def \baseWidth {0.6cm};
+    \def \baseHeight {0.37267081cm};
+
+    \foreach \color [count=\i from 0] in {
+        Apricot, Aquamarine, Bittersweet, Black, Blue, BlueGreen, BlueViolet, BrickRed,
+        Brown, BurntOrange, CadetBlue, CarnationPink, Cerulean, CornflowerBlue, Cyan,
+        Dandelion, DarkOrchid, Emerald, ForestGreen, Fuchsia, Goldenrod, Gray, Green,
+        GreenYellow, JungleGreen, Lavender, LimeGreen, Magenta, Mahogany, Maroon, Melon,
+        MidnightBlue, Mulberry, NavyBlue, OliveGreen, Orange, OrangeRed, Orchid, Peach,
+        Periwinkle, PineGreen, Plum, ProcessBlue, Purple, RawSienna, Red, RedOrange,
+        RedViolet, Rhodamine, RoyalBlue, RoyalPurple, RubineRed, Salmon, SeaGreen,
+        Sepia, SkyBlue, SpringGreen, Tan, TealBlue, Thistle, Turquoise, Violet,
+        VioletRed, White, WildStrawberry, Yellow, YellowGreen, YellowOrange} {
+
+        \coordinate (center_\color)
+                        at ({1.3*mod(\i, \columnWidth)}, {1*div(\i, \columnWidth)});
+        \coordinate (rectangle_bottom_\color)
+                        at ($(center_\color) - (\baseWidth, \baseHeight)$);
+        \coordinate (rectangle_top_\color)
+                        at ($(center_\color) + (\baseWidth, \baseHeight)$);
+
+        \draw[fill=\color, black] (rectangle_bottom_\color) rectangle (rectangle_top_\color);
+%%         \node[below=0.5cm of center_\color] {\color};
+        \node at (center_\color) {\Tiny\color};
+    }
+\end{tikzpicture}
 \end{frame}
 
  \section{Equation}
