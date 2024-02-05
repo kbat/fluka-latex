@@ -107,9 +107,9 @@
     \ifx\beamer@progressstyle\beamer@progressmovingCircCnt% the circular counter with a moving counter
     %% calculate the end position
     \ifx\beamer@rotationcw\undefined% counterclockwise rotation
-    \pgfmathsetmacro{\progress}{220*\insertframestartpage/\inserttotalframenumber}; %%% 220 covers the entire circle, while 360 it goes twice
+    \pgfmathsetmacro{\progress}{220*\insertpagenumber/\inserttotalframenumber}; %%% 220 covers the entire circle, while 360 it goes twice
     \else% clockwise rotation
-    \pgfmathsetmacro{\progress}{-220*\insertframestartpage/\inserttotalframenumber};
+    \pgfmathsetmacro{\progress}{-220*\insertpagenumber/\inserttotalframenumber};
     \fi
 
     %% draw the arc
@@ -117,7 +117,7 @@
     \fill[fill=FLUKA.bg] ([shift={(\progress:\beamer@counterradius)}] logopos) circle (0.25\beamer@borderwidth);
 
     %% place the current frame number
-    \node[fill=normal text.bg,draw=FLUKA.fg,thick,circle,minimum width=2*\beamer@borderwidth] at ([xshift=\beamer@counterradius]logopos) {{\usebeamercolor[fg]{normal text}\insertframenumber}};
+    \node[fill=normal text.bg,draw=FLUKA.fg,thick,circle,minimum width=2*\beamer@borderwidth] at ([xshift=\beamer@counterradius]logopos) {{\usebeamercolor[fg]{normal text}\insertpagenumber}};
     \fi
     \ifx\beamer@progressstyle\beamer@progressfixedCircCnt % the circular counter with a fixed counter
 
@@ -132,7 +132,7 @@
     \draw[color=FLUKA.bg,line width=0.5*\beamer@borderwidth] ([xshift=\beamer@counterradius] logopos) arc (0:\progress:\beamer@counterradius);
 
     %% place the current frame number
-    \node[fill=normal text.bg,draw=FLUKA.fg,circle,thick,minimum width=2*\beamer@borderwidth] at ([shift={(\progress:\beamer@counterradius)}] logopos) {{\usebeamercolor[fg]{normal text}\insertframenumber}};
+    \node[fill=normal text.bg,draw=FLUKA.fg,circle,thick,minimum width=2*\beamer@borderwidth] at ([shift={(\progress:\beamer@counterradius)}] logopos) {{\usebeamercolor[fg]{normal text}\insertpagenumber}};
     \fi
 
   \end{tikzpicture}
