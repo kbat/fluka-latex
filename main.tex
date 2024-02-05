@@ -57,7 +57,7 @@
 
 \section{Colours}
 
-\begin{frame}{\secname}{https://nemo.kiwi/latex/colors.html}
+\begin{frame}{\secname}
   \centering
   \begin{tikzpicture}
     \def \nColumns {6};
@@ -162,15 +162,23 @@
      \framesubtitle{TikZ picture}
      \centering
      \begin{tikzpicture}
-       \begin{axis}[every axis plot post/.append style={mark=none,domain=-2:3,samples=50,smooth},
-         axis x line*=bottom,
-         axis y line*=left,
-         enlargelimits=upper,
-         xlabel=$x$,
-         ylabel=$y$]
-         \addplot+[ultra thick] {gauss(0,0.5)};
-         \addplot+[ultra thick] {gauss(1,0.75)};
-       \end{axis}
+       \begin{axis}[
+           height=0.7\textheight,
+           width=0.8\linewidth,
+           xlabel = {x {[\si{\cm}]}},
+           ylabel = {y {[\si{\cm}]}},
+           title = {Title},
+           view={0}{90},
+           colormap/hot,
+           colorbar sampled,
+           colorbar style={
+             title = {Palette title},
+             ylabel = {Value {[arb. units]}},
+             samples=8,
+           },
+         ]
+	\addplot3[surf] {x*y};
+	\end{axis}
      \end{tikzpicture}
    }
    \only<5>{
