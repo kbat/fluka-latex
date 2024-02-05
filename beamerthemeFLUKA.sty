@@ -39,4 +39,24 @@
   \makeatother
 }
 
+\NewDocumentCommand\location{mm}{%
+  \subtitle{Location: not set}
+  \date{Date: not set}
+  \IfEq{#1}{Frascati}{%
+    \IfEq{#2}{2003}{%
+      \subtitle{1st FLUKA Course \\ INFN Laboratori Nazionali di Frascati \\ Frascati, Italy}
+      \date{October 13--17, 2003}}{}
+  }{}
+  \IfEq{#1}{ALBA}{%
+    \IfEq{#2}{2019}{%
+      \subtitle{21st FLUKA Beginner's Course \\ ALBA Synchrotron \\ Spain}
+      \date{April 8--12, 2019}}{}
+  }{}
+  \IfEq{#1}{Lanzhou}{%
+    \IfEq{#2}{2024}{%
+      \subtitle{23rd FLUKA Beginner's Course \\ Lanzhou University \\ Lanzhou, China}
+      \date{June 2--7, 2024}}{}
+  }{}
+}
+
 \mode<all>
