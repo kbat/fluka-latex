@@ -107,9 +107,9 @@
     \ifx\beamer@progressstyle\beamer@progressmovingCircCnt% the circular counter with a moving counter
     %% calculate the end position
     \ifx\beamer@rotationcw\undefined% counterclockwise rotation
-    \pgfmathsetmacro{\progress}{220*\insertpagenumber/\inserttotalframenumber}; %%% 220 covers the entire circle, while 360 it goes twice
+    \pgfmathsetmacro{\progress}{180*\insertpagenumber/\inserttotalframenumber};
     \else% clockwise rotation
-    \pgfmathsetmacro{\progress}{-220*\insertpagenumber/\inserttotalframenumber};
+    \pgfmathsetmacro{\progress}{-180*\insertpagenumber/\inserttotalframenumber};
     \fi
 
     %% draw the arc
