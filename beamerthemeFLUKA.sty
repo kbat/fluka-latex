@@ -6,6 +6,7 @@
 \RequirePackage{comicneue}
 \RequirePackage{siunitx}
 \RequirePackage{booktabs}
+\RequirePackage{xstring}
 
 \DeclareOptionBeamer{progressstyle}{\PassOptionsToPackage{progressstyle=#1}{beamerouterthemeFLUKA}}
 \DeclareOptionBeamer{rotationcw}{\PassOptionsToPackage{rotationcw}{beamerouterthemeFLUKA}}
@@ -16,6 +17,26 @@
   \useinnertheme{FLUKA}
   \useoutertheme{FLUKA}
   \usecolortheme{FLUKA}
+}
+
+\NewDocumentCommand\showfont{}{%
+  \makeatletter
+  \begin{center}
+    \begin{tabular}{rl}
+%      \toprule
+      %      encoding: \f@encoding{},
+      family: & \f@family{} \\
+      series: &  \IfEq{\f@series}{b}{bold}{\IfEq{\f@series}{m}{medium}{\f@series}} \\
+      shape: & \IfEq{\f@shape}{n}{normal}{\IfEq{\f@shape}{it}{italic}{\IfEq{\f@shape}{sc}{small capitals}{\IfEq{\f@shape}{sl}{slanted}{\f@shape}}}} \\
+      size: & \f@size\,pt \\
+      baseline skip: & \f@baselineskip{} \\
+      %%     main math size: & \tf@size\,pt \\
+      %%     `script' math size: & \sf@size{}\,pt \\
+      %%     `scriptscript` math size: & \ssf@size{}\,pt \\
+%      \bottomrule
+    \end{tabular}
+  \end{center}
+  \makeatother
 }
 
 \mode<all>

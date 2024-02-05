@@ -4,13 +4,14 @@
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 
-\usepackage{pgfplots} % for tikz images
-\pgfmathdeclarefunction{gauss}{2}{%
+%%% Feel free to remove these lines - they are needed for these slides only
+\usepackage{lipsum}
+\usepackage{pgfplots}
+\pgfmathdeclarefunction{gauss}{2}{
   \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
 }
-
-% remove if you do not need them
 \usetikzlibrary{calc,positioning}
+%%%
 
 \title{Your lecture title}
 
@@ -36,6 +37,28 @@
 \begin{frame}{Outline}
 \tableofcontents
 \end{frame}
+
+\section{Fonts}
+\begin{frame}{\secname}
+  \framesubtitle<1>{Titlepage: title}
+  \framesubtitle<2>{Titlepage: location and date}
+  \framesubtitle<3>{Normal text}
+  \framesubtitle<4>{Text in footer}
+  \framesubtitle<5>{Header: slide title}
+  \framesubtitle<6>{Header: slide subtitle}
+  \framesubtitle<7>{Block title}
+  \framesubtitle<8>{Block text}
+  \framesubtitle<9>{Itemize/enumerate body}
+  \framesubtitle<10>{Itemize/enumerate subbody}
+  \framesubtitle<11>{Itemize/enumerate subsubbody}
+  \foreach \aaa [count=\i from 1] in {title, date, normal text, author in foot, frametitle, framesubtitle, block title, block text, itemize/enumerate body, itemize/enumerate subbody, itemize/enumerate subsubbody} {
+    \only<\i>{
+      \usebeamerfont{\aaa}
+      \showfont
+    }
+  }
+\end{frame}
+
 
 \section{Colours}
 
@@ -63,8 +86,8 @@
   \end{tikzpicture}
 \end{frame}
 
- \section{Equation}
- \begin{frame}{\secname}
+ \section{Math}
+ \begin{frame}{\secname}{Equation}
    \centering
    \Huge
    $$
@@ -72,8 +95,7 @@
    $$
  \end{frame}
 
- \section{Matrix}
- \begin{frame}{\secname}
+ \begin{frame}{\secname}{Matrix}
    \centering
    \Huge
    $$
@@ -87,45 +109,47 @@
    $$
  \end{frame}
 
+ \section{Blocks}
+ \begin{frame}{\secname}
+   \only<1>{
+     \framesubtitle{Block}
+     \begin{block}{Block title}
+       \lipsum[4]
+     \end{block}
+   }
+   \only<2>{
+     \framesubtitle{Exampleblock}
+     \begin{exampleblock}{Block title}
+       \lipsum[4]
+     \end{exampleblock}
+   }
+   \only<3>{
+     \framesubtitle{Alertblock}
+     \begin{alertblock}{Block title}
+       \lipsum[4]
+     \end{alertblock}
+   }
+ \end{frame}
+
 \section{Examples}
  \begin{frame}{\secname}
    \only<1>{
      \framesubtitle{Enumerate}
      \begin{enumerate}
-     \item en
-     \item tv\aa
-     \item tre
+     \item \lipsum[1][1] %\lipsum[2][1]
+     \item \lipsum[1][2] \lipsum[2][2]
+     \item \lipsum[1][3] \lipsum[2][3]
      \end{enumerate}
    }
    \only<2>{
      \framesubtitle{Itemize}
      \begin{itemize}
-     \item tro
-     \item hopp
-     \item k\"arlek
+     \item \lipsum[1][1] %\lipsum[2][1]
+     \item \lipsum[1][2] \lipsum[2][2]
+     \item \lipsum[1][3] \lipsum[2][3]
      \end{itemize}
    }
    \only<3>{
-     \framesubtitle{Block}
-     \begin{block}{Block title}
-       text inside block
-     \end{block}
-   }
-   \only<4>{
-     \framesubtitle{Example}
-     \begin{example}
-       text inside example
-     \end{example}
-   }
-   \only<5>{
-     \framesubtitle{Quote}
-     \begin{exampleblock}{}
-       ``The first principle is that you must not fool yourself~--- and you are the easiest person to fool.''
-       \vskip 5mm
-       \hspace*\fill{\small--- Richard Feynman}
-     \end{exampleblock}
-   }
-   \only<6>{
      \framesubtitle{Table}
      \centering
      \begin{tabular}{ccc}
@@ -139,7 +163,7 @@
        \bottomrule
       \end{tabular}
    }
-   \only<7>{
+   \only<4>{
      \framesubtitle{TikZ picture}
      \centering
      \begin{tikzpicture}
@@ -154,7 +178,7 @@
        \end{axis}
      \end{tikzpicture}
    }
-   \only<8>{
+   \only<5>{
      \framesubtitle{External graphics}
      \begin{block}{Heavy ion incident onto ATIC spectrometer}
        \includegraphics[width=0.49\linewidth]{figs/g1-soft.png} \hfill
