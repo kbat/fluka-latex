@@ -7,6 +7,7 @@
 \RequirePackage{siunitx}
 \RequirePackage{booktabs}
 \RequirePackage{xstring}
+\RequirePackage{pgfplots}
 
 \DeclareOptionBeamer{progressstyle}{\PassOptionsToPackage{progressstyle=#1}{beamerouterthemeFLUKA}}
 \DeclareOptionBeamer{rotationcw}{\PassOptionsToPackage{rotationcw}{beamerouterthemeFLUKA}}
@@ -58,5 +59,11 @@
       \date{June 2--7, 2024}}{}
   }{}
 }
+
+\pgfplotsset{%
+%  compat=1.18,
+  cycle list = {black,beamer@alertcolor,red},
+  }
+
 
 \mode<all>
