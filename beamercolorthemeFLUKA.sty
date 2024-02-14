@@ -2,14 +2,17 @@
 \ProvidesPackage{beamercolorthemeFLUKA}[2024/02/01 v1.0.0 The FLUKA Beamer Theme]
 
 \mode<presentation>{%
-  \definecolor{beamer@barcolor}{RGB}{194,193,204}% light blue
-  \definecolor{beamer@normaltextcolor}{RGB}{84,97,110}% gray blue
-  \definecolor{beamer@headercolor}{rgb}{0,0.41,0.54} % dark blue
+  \definecolor{beamer@barcolor}{RGB}{194,193,204}
+  \definecolor{beamer@textcolor}{HTML}{000000}
+  \definecolor{beamer@headercolor}{HTML}{25506b} % Lanzhow logo color
+  \definecolor{beamer@alertcolor}{HTML}{FF8A44}
+  \definecolor{beamer@keywordcolor}{HTML}{008080}
 
-  \setbeamercolor{structure}{fg=beamer@headercolor}
-  \setbeamercolor{normal text}{fg=beamer@normaltextcolor}
-  \setbeamercolor{frametitle}{fg=white,bg=beamer@headercolor}
   \setbeamercolor{FLUKA}{fg=beamer@barcolor,bg=beamer@headercolor}
+  \setbeamercolor{structure}{fg=beamer@headercolor}
+  \setbeamercolor{normal text}{fg=beamer@textcolor}
+  \setbeamercolor{frametitle}{fg=white,bg=beamer@headercolor}
+  \setbeamercolor{alerted text}{fg=beamer@alertcolor}
 }
 
 \mode<all>

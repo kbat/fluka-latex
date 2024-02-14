@@ -64,10 +64,7 @@
     \def \baseWidth {0.6cm};
     \def \baseHeight {0.37267081cm};
 
-    \foreach \color [count=\i from 0] in {black, blue, brown, cyan, darkgray, gray,
-      green, lightgray, lime, magenta, olive,
-      orange, pink, purple, red, teal, violet,
-      yellow} {
+    \foreach \color [count=\i from 0] in {text, bar, header, alert, keyword} {
       \coordinate (center_\color)
       at ({2*mod(\i, \nColumns)}, {2*div(\i, \nColumns)});
       \coordinate (rectangle_bottom_\color)
@@ -75,7 +72,7 @@
       \coordinate (rectangle_top_\color)
       at ($(center_\color) + (\baseWidth, \baseHeight)$);
 
-      \draw[fill=\color, black] (rectangle_bottom_\color) rectangle (rectangle_top_\color);
+      \draw[fill=beamer@\color color, black] (rectangle_bottom_\color) rectangle (rectangle_top_\color);
       \node[below=0.5cm of center_\color] {\color};
     }
   \end{tikzpicture}
