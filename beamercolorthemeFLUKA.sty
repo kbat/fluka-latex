@@ -2,40 +2,14 @@
 \ProvidesPackage{beamercolorthemeFLUKA}[2024/02/01 v1.0.0 The FLUKA Beamer Theme]
 
 \mode<presentation>{%
-  \definecolor{beamer@normaltextcolor}{HTML}{000000}
+  \definecolor{beamer@barcolor}{RGB}{194,193,204}% light blue
+  \definecolor{beamer@normaltextcolor}{RGB}{84,97,110}% gray blue
+  \definecolor{beamer@headercolor}{rgb}{0,0.41,0.54} % dark blue
 
-  % Spot palette with the base color #2C547A
-  % https://mycolor.space/?hex=%232C547A&sub=1
-  \definecolor{beamer@headercolor}{HTML}{00BBc5}% 2C547A} % dark blue
-  \definecolor{beamer@textcolor}{HTML}{25506b} %125F63}
-%  \definecolor{beamer@barcolor}{HTML}{6185AF}% light blue
-  \definecolor{beamer@barcolor}{HTML}{00BBc5}% light blue
-  \definecolor{beamer@blockbg}{HTML}{e0fcf0}% light blue
-  \definecolor{beamer@alertcolor}{HTML}{FF8A44}
-  \definecolor{beamer@progresscolor}{HTML}{000000}
-
-  \definecolor{beamer@logocirclecolor}{HTML}{aaf0d1} % mint
-
-%%   % Pin palette with the base color #05BCDB (center of the biggest circle in the FLUKA logo)
-%%   % https://mycolor.space/?hex=%2305BCDB&sub=1
-%%   \definecolor{beamer@headercolor}{HTML}{005B92} % dark blue
-%%   \definecolor{beamer@barcolor}{HTML}{05BCDB}% light blue
-%%   \definecolor{beamer@blockbg}{HTML}{E6F4F1}% grey blue
-%%   \definecolor{beamer@alertcolor}{HTML}{802B00}
-%%    \definecolor{beamer@progresscolor}{HTML}{802B00} % same as alertcolor
-
-  \setbeamercolor{FLUKA}{fg=beamer@barcolor,bg=beamer@headercolor}
-  \setbeamercolor{structure}{fg=beamer@textcolor}
+  \setbeamercolor{structure}{fg=beamer@headercolor}
   \setbeamercolor{normal text}{fg=beamer@normaltextcolor}
-  \setbeamercolor{alerted text}{fg=beamer@alertcolor}
   \setbeamercolor{frametitle}{fg=white,bg=beamer@headercolor}
-
-  \setbeamercolor{block body}{bg=beamer@blockbg}
-  \setbeamercolor{block title}{bg=beamer@headercolor}
-  \setbeamercolor{block body alerted}{parent=block body}
-  \setbeamercolor{block body example}{parent=block body}
-  \setbeamercolor{block title example}{parent=block title, fg=yellow}
-  \setbeamercolor{block title alerted}{parent=block title, fg=beamer@alertcolor}
+  \setbeamercolor{FLUKA}{fg=beamer@barcolor,bg=beamer@headercolor}
 }
 
 \mode<all>
