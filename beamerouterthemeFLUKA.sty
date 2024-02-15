@@ -53,49 +53,68 @@
     \featherheaderbackground
   }
 
-\defbeamertemplate*{footline}{FLUKA}
-{
-  \leavevmode%
-  \hbox{%
-    \begin{beamercolorbox}[wd=0.9\paperwidth,ht=0.03\paperheight,left]{title in foot}%
-      \hspace{1em}\insertshorttitle
-    \end{beamercolorbox}
-
-    \begin{beamercolorbox}[wd=.1\paperwidth,ht=0.03\paperheight,right]{title in foot}%
-      \flukasite\hspace{1em}
-    \end{beamercolorbox}
-  }%
-  \vskip1pt%
-}
-
-\setbeamertemplate{frametitle}{%
-    \begin{minipage}[c][0.9\beamer@height][c]{\textwidth}
-      {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par}
-      {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}
-    \end{minipage}
-  }
-
   \ifx\beamer@shownavsym\undefined % insert navigation symbols
   \setbeamertemplate{navigation symbols};
   \fi
+
+  \setbeamertemplate{footline} {%
+    \leavevmode%
+    \hbox{%
+      \begin{beamercolorbox}[wd=0.9\paperwidth,ht=0.03\paperheight,left]{title in foot}%
+        \hspace{1em}\insertshorttitle
+      \end{beamercolorbox}
+
+      \begin{beamercolorbox}[wd=.1\paperwidth,ht=0.03\paperheight,right]{title in foot}%
+        \flukasite\hspace{1em}
+      \end{beamercolorbox}
+    }%
+    \vskip1pt%
+  }
+
+  \newlength{\myheight}
+  \ifx\insertframesubtitle\@empty%
+  \setlength{\myheight}{0.7\beamer@height}
+  \else
+  \setlength{\myheight}{0.9\beamer@height}
+  \fi
+
+  \setbeamertemplate{frametitle}{%
+    \begin{minipage}[c][\myheight][c]{\textwidth}
+      \ifx\insertframesubtitle\@empty {%
+        \vspace*{-0.3\myheight}
+        \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par
+      } \else{%
+        \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par
+        \usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par
+      }
+      \fi
+    \end{minipage}
+  }
 }
 
 %% coordinate the fancy header background
 \NewDocumentCommand\featherheaderbackground{}{%
+
+  \ifx\insertframesubtitle\@empty%
+  \setlength{\myheight}{0.7\beamer@height}
+  \else
+  \setlength{\myheight}{0.9\beamer@height}
+  \fi
+
   \begin{tikzpicture}[overlay]
 
     \coordinate (UL) at (0,0); %upper left corner of the slide
-    \coordinate (HLR) at (\paperwidth,-0.9\beamer@height); %lower right of the header
+    \coordinate (HLR) at (\paperwidth,-\myheight); %lower right of the header
 
-    \coordinate (ULL) at (0,-0.95\beamer@height); % upper left corner of the line
-    \coordinate (LLR) at (\paperwidth,-1\beamer@height); % lower right corner of the line
+    \coordinate (ULL) at (0,-1.056\myheight); % upper left corner of the line
+    \coordinate (LLR) at (\paperwidth,-1.111\myheight); % lower right corner of the line
 
     \coordinate (ULF) at (0,-5.90\beamer@height); % upper left corner of the footline
     \coordinate (LFR) at (\paperwidth,-6.08\beamer@height); % lower right corner of the footline
 
     \coordinate (logopos) at ([shift={(-\beamer@logoouterradius-2.05\beamer@borderwidth,\beamer@height-\beamer@logoouterradius-5.5\beamer@borderwidth)}] HLR); % coordinate of the logo and the circ position
 
-%%draw the background of the header, the circle and the logo
+    %%draw the background of the header, the circle and the logo
     \usebeamercolor{FLUKA}
     %% draw the blue background rectangle of the header and the line below it
     \draw[draw=none,fill=FLUKA.bg] (UL) rectangle (HLR); % background rectabgle
