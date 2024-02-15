@@ -57,31 +57,13 @@
 {
   \leavevmode%
   \hbox{%
-%%     \begin{beamercolorbox}[wd=.2\paperwidth,ht=0.03\paperheight,dp=0ex,left]{author in head/foot}%
-%%       \begin{tikzpicture}
-%%         \useasboundingbox[fill=white] (0,0) rectangle(0.2\paperwidth, 0.03\paperheight);
-%%         \node[anchor=west, beamer@headercolor] at (0,0.13){\usebeamerfont{author in head/foot}\insertshortauthor};
-%%       \end{tikzpicture}
-%%     \end{beamercolorbox}%
-
-    \begin{beamercolorbox}[wd=.9\paperwidth,ht=0.03\paperheight,left]{title in head/foot}%
-      \begin{tikzpicture}
-        \useasboundingbox[fill=white] (0,0) rectangle(0.7\paperwidth, 0.03\paperheight);
-        \node[anchor=west, beamer@headercolor] at (0,0.13){\usebeamerfont{title in head/foot}\insertshorttitle};
-      \end{tikzpicture}
+    \begin{beamercolorbox}[wd=0.9\paperwidth,ht=0.03\paperheight,left]{title in foot}%
+      \hspace{1em}\insertshorttitle
     \end{beamercolorbox}
 
-    \begin{beamercolorbox}[wd=.1\paperwidth,ht=0.03\paperheight,left]{date in head/foot}%
-      www.fluka.org
+    \begin{beamercolorbox}[wd=.1\paperwidth,ht=0.03\paperheight,right]{title in foot}%
+      \flukasite\hspace{1em}
     \end{beamercolorbox}
-
-
-%%     \begin{beamercolorbox}[wd=.1\paperwidth,ht=0.03\paperheight,right]{date in head/foot}%
-%%       \begin{tikzpicture}
-%%         \useasboundingbox[fill=white] (0,0) rectangle(0.1\paperwidth, 0.03\paperheight);
-%%         \node[anchor=east, beamer@headercolor] at (1,0.13){\usebeamerfont{author in head/foot}\insertpagenumber / \inserttotalframenumber};
-%%       \end{tikzpicture}
-%%     \end{beamercolorbox}
   }%
   \vskip1pt%
 }
