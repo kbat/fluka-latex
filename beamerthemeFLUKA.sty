@@ -45,8 +45,8 @@
 \newcommand*\hostlogo{}
 
 \NewDocumentCommand\location{mm}{%
-  \subtitle{Location: not set}
-  \date{Date: not set}
+  \subtitle{~}
+  \ifx\date\empty\date{\today}\else\fi
   \IfEq{#1}{Frascati}{%
     \IfEq{#2}{2003}{%
       \subtitle{1st FLUKA Course \\ INFN Laboratori Nazionali di Frascati \\ Frascati, Italy}
