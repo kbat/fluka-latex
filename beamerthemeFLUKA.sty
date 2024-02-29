@@ -9,6 +9,7 @@
 \RequirePackage{xstring}
 \RequirePackage{pgfplots}
 \RequirePackage{xspace}
+\RequirePackage{tabularx}
 
 \DeclareOptionBeamer{progressstyle}{\PassOptionsToPackage{progressstyle=#1}{beamerouterthemeFLUKA}}
 \DeclareOptionBeamer{rotationcw}{\PassOptionsToPackage{rotationcw}{beamerouterthemeFLUKA}}
@@ -74,21 +75,33 @@
   \textcolor{beamer@barcolor!60!black}{#1}\xspace
 }
 
-\NewDocumentCommand\card{mmmo}{%
-  \def\lineOne{}
-  \foreach \what in {#2} {\protected@xappto\lineOne { & \what}}
+\NewDocumentCommand\card{ommmo}{%
+  \def\totalwidth{}
+  \IfNoValueTF{#1}{\def\totalwidth{\linewidth}}{\def\totalwidth{#1}}
 
-  \IfNoValueTF{#4}{}{%
+  \def\lineOne{}
+  \foreach \what in {#3} {\protected@xappto\lineOne { & \what}}
+
+  \IfNoValueTF{#5}{}{%
     \def\lineTwo{}
-    \foreach \what in {#4} {\protected@xappto\lineTwo { & \what}}
+    \foreach \what in {#5} {\protected@xappto\lineTwo { & \what}}
   }
 
-   \begin{tabular}{lrrrrrrl}
-     \keyword{#1} \lineOne & {\bf #3} \\
-     \IfNoValueTF{#4}{}{%
-       \keyword{#1} \lineTwo & {\bf \&}
-     }
-   \end{tabular}
+  \begin{tabularx}{\totalwidth}{%
+      >{\raggedright\arraybackslash}X
+      >{\raggedleft\arraybackslash}X
+      >{\raggedleft\arraybackslash}X
+      >{\raggedleft\arraybackslash}X
+      >{\raggedleft\arraybackslash}X
+      >{\raggedleft\arraybackslash}X
+      >{\raggedleft\arraybackslash}X
+      >{\raggedright\arraybackslash}X
+      }
+    \keyword{#2} \lineOne & {\bf #4} \\
+    \IfNoValueTF{#5}{}{%
+      \keyword{#2} \lineTwo & {\bf \&}
+    }
+  \end{tabularx}
 }
 
 
