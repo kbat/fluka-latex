@@ -68,7 +68,28 @@
 
 \NewDocumentCommand\keyword{m}{%
   \textcolor{beamer@keywordcolor}{#1}\xspace
+}
+
+\NewDocumentCommand\comment{m}{%
+  \textcolor{beamer@barcolor!60!black}{#1}\xspace
+}
+
+\NewDocumentCommand\card{mmmo}{%
+  \def\lineOne{}
+  \foreach \what in {#2} {\protected@xappto\lineOne { & \what}}
+
+  \IfNoValueTF{#4}{}{%
+    \def\lineTwo{}
+    \foreach \what in {#4} {\protected@xappto\lineTwo { & \what}}
   }
+
+   \begin{tabular}{lrrrrrrl}
+     \keyword{#1} \lineOne & {\bf #3} \\
+     \IfNoValueTF{#4}{}{%
+       \keyword{#1} \lineTwo & {\bf \&}
+     }
+   \end{tabular}
+}
 
 
 \pgfplotsset{%
