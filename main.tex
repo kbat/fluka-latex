@@ -210,6 +210,46 @@
        \hfill\copyr{http://www.fluka.org}{Toni Empl}
      \end{block}
    }
+   \only<6>{
+     \framesubtitle{\LaTeX\xspace template: {\tt \textbackslash keyword}, {\tt \textbackslash comment}, and {\tt \textbackslash alert}}
+     The {\tt \textbackslash keyword} and {\tt \textbackslash comment} commands emphasise their arguments with different colours:
+     \begin{itemize}
+       \item {\tt \textbackslash keyword}\{USRBIN\} generates \keyword{USRBIN}
+       \item {\tt \textbackslash comment}\{Some not-so-imporant info\} generates \comment{Some not-so-imporant info}
+       \item Don't forget about the Beamer built-in command {\tt \textbackslash alert}\{Important text\} which generates \alert{Important text}
+     \end{itemize}
+   }
+   \only<7>{
+     \framesubtitle{\LaTeX\xspace template: {\tt \textbackslash card}}
+     \begin{itemize}
+     \item The {\tt\alert{\textbackslash card}} command provides an interface to typeset the FLUKA deck cards
+     \item Syntax: {\tt \textbackslash card\{CARD\}\{WHAT1,WHAT2,\dots,WHAT6\}\{SDUM\}}
+     \item An optional 4th argument adds the second line: \\
+       {\tt \textbackslash card\{CARD\}\{WHAT1,WHAT2, \dots, WHAT6\}\{SDUM\}{[WHAT7,\dots,WHAT12]}}, i.e.
+       \card{USRBIN}{-10.0, ELECTRON, -25.0, -7.0, 7.0, 12.1}{verythin}[-7.0,-7.0,12.0,35.0, ,1.0]
+     \item Any {\tt WHAT}s can be omitted in the same way as in the free format input
+     \item Use the {\tt tabular} environment if more than two deck lines are needed
+     \end{itemize}
+   }
+   \only<8>{
+     \framesubtitle{\LaTeX\xspace template: titlepage}
+     It is possible to use this \LaTeX\xspace template for other FLUKA-related talks, without school information on the titlepage.
+     \begin{itemize}
+       \item If the school location is defined, i.e., with {\tt
+         \textbackslash location\{Lanzhou\}\{2024\}} then the
+         corresponding info is printed in the bottom-right corner as
+         it is done on the first slide
+       \item Otherwise, if location is set to the empty values, i.e.,
+         {\tt \textbackslash location\{\}\{\}} then no host logo is
+         displayed and the current date is printed in the bottom-right
+         corner
+         \begin{itemize}
+         \item The date can be adjusted by the standard {\tt \textbackslash date} command
+         \end{itemize}
+       \item Contact KB if you have more suggestions about this template :)
+     \end{itemize}
+
+   }
  \end{frame}
 
  \section{Bibliography}
