@@ -13,7 +13,7 @@
 \usetikzlibrary{calc,positioning}
 %%%
 
-\title{Your lecture title}
+\title{\LaTeX\xspace template for the lecture slides}
 
 % This template can be used both for the school lectures and
 % your FLUKA-related talks:
@@ -46,6 +46,11 @@
 
 \begin{frame}{Outline}
 \tableofcontents
+\end{frame}
+
+\begin{frame}{Source code}
+  \centering
+  \href{https://github.com/kbat/fluka-latex.git}{https://github.com/kbat/fluka-latex}
 \end{frame}
 
 \section{Fonts}
@@ -98,6 +103,7 @@
     \item Normal text
     \item Text with an \alert{emphasised phrase}
     \item Text with a \keyword{keyword}, like a \keyword{USRBIN} estimator
+    \item Standard and \comment{less important} text
   \end{itemize}
 \end{frame}
 
@@ -215,7 +221,7 @@
      The {\tt \textbackslash keyword} and {\tt \textbackslash comment} commands emphasise their arguments with different colours:
      \begin{itemize}
        \item {\tt \textbackslash keyword}\{USRBIN\} generates \keyword{USRBIN}
-       \item {\tt \textbackslash comment}\{Some not-so-imporant info\} generates \comment{Some not-so-imporant info}
+       \item {\tt \textbackslash comment}\{Some less imporant info\} generates \comment{Some less imporant info}
        \item Don't forget about the Beamer built-in command {\tt \textbackslash alert}\{Alerted text\} which generates \alert{Alerted text}
      \end{itemize}
    }

@@ -83,12 +83,12 @@
     \foreach \what in {#4} {\protected@xappto\lineTwo { & \what}}
   }
 
-   \begin{tabular}{lrrrrrrl}
-     \keyword{#1} \lineOne & {\bf #3} \\
-     \IfNoValueTF{#4}{}{%
-       \keyword{#1} \lineTwo & {\bf \&}
-     }
-   \end{tabular}
+  \begin{tabular}{lrrrrrrl}
+    \keyword{#1} \lineOne & {\bf #3} \\
+    \IfNoValueTF{#4}{}{%
+      \keyword{#1} \lineTwo & {\bf \&}
+    }
+  \end{tabular}
 }
 
 
