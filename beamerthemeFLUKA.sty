@@ -91,6 +91,14 @@
   \end{tabular}
 }
 
+\newenvironment{whats}{%
+  \renewcommand{\theenumi}{\alert{WHAT(\arabic{enumi})}}
+  \begin{enumerate}
+}{%
+  \end{enumerate}
+%  \renewcommand{\theenumi}{\arabic{enumi}}
+}
+
 
 \pgfplotsset{%
 %  compat=1.18,
