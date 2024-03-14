@@ -21,11 +21,14 @@ cd empty-folder-with-your-lecture-slides
 mkdir figs
 for f in /path/to/fluka-latex/*.sty; do ln -s $f .; done
 for f in /path/to/fluka-latex/figs/[fbl]*; do ln -s $f figs; done
-cp /path/to/fluka-latex/main.tex your-lecture-name.tex # optional
+```
+Optional:
+```
+cp /path/to/fluka-latex/main.tex your-lecture-name.tex
 ```
 This approach allows for separate repositories for this style and the lecture slides.
 
 # Recommendation
-To prevent merge conflicts when consolidating all the slides into a shared repository, please follow these guidelines:
+To prevent merge conflicts when consolidating all the slides into a common repository, please follow these guidelines:
 * Assign a distinct name to your main TeX file, such as `your-lecture-name.tex`.
 * Store your lecture figures under the `figs/your-lecture-name` directory.
