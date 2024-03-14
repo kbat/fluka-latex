@@ -1,3 +1,13 @@
+# Requirements
+## Linux
+Depending on your Linux installation, you might need to install these packages:
+* texlive-latex-recommended
+* texlive-fonts-extra or both texlive-comicneue and texlive-ly1.noarch
+* texlive-science or both texlive-siunitx and texlive-pgfplots
+
+## MacOS and Windows
+* can anyone help here?
+
 # Installation
 1. Get the code and compile main.pdf
 ```
