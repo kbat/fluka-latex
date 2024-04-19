@@ -9,6 +9,8 @@
 \RequirePackage{xstring}
 \RequirePackage{pgfplots}
 \RequirePackage{xspace}
+\RequirePackage{todonotes}
+\presetkeys{todonotes}{inline}{}
 
 \DeclareOptionBeamer{progressstyle}{\PassOptionsToPackage{progressstyle=#1}{beamerouterthemeFLUKA}}
 \DeclareOptionBeamer{rotationcw}{\PassOptionsToPackage{rotationcw}{beamerouterthemeFLUKA}}
@@ -91,6 +93,8 @@
   \end{tabular}
 }
 
+\NewDocumentCommand\FLUPRO{}{\$FLUPRO\xspace}
+\NewDocumentCommand\FLUTIL{}{\FLUPRO/flutil\xspace}
 
 \pgfplotsset{%
 %  compat=1.18,
