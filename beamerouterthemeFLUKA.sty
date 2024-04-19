@@ -10,7 +10,6 @@
 \def\beamer@progresscorner{corner} % a counter
 \def\beamer@progressstyle{movingCircCnt} % default
 \DeclareOptionBeamer{progressstyle}{\def\beamer@progressstyle{#1}}
-\DeclareOptionBeamer{rotationcw}{\def\beamer@rotationcw{true}}
 \DeclareOptionBeamer{shownavsym}{\def\beamer@shownavsym{true}}
 \ProcessOptionsBeamer
 
@@ -130,11 +129,7 @@
     %% draw progress circle/bar
     \ifx\beamer@progressstyle\beamer@progressmovingCircCnt% the circular counter with a moving counter
     %% calculate the end position
-    \ifx\beamer@rotationcw\undefined% counterclockwise rotation
     \pgfmathsetmacro{\progress}{180*\insertpagenumber/\inserttotalframenumber};
-    \else% clockwise rotation
-    \pgfmathsetmacro{\progress}{-180*\insertpagenumber/\inserttotalframenumber};
-    \fi
 
     %% draw the arc
     \draw[color=FLUKA.bg,line width=0.2*\beamer@borderwidth] ([xshift=\beamer@counterradius] logopos)  arc[radius=\beamer@counterradius, start angle=0, end angle=\progress];
@@ -143,14 +138,10 @@
     %% place the current frame number
     \node[fill=normal text.bg,draw=FLUKA.fg,thick,circle,minimum width=2*\beamer@borderwidth] at ([xshift=\beamer@counterradius]logopos) {{\usebeamercolor[fg]{normal text}\insertpagenumber}};
     \fi
+
     \ifx\beamer@progressstyle\beamer@progressfixedCircCnt % the circular counter with a fixed counter
 
-    %% draw the current frame number
-    \ifx\beamer@rotationcw\undefined % counterclockwise rotation
     \pgfmathsetmacro{\progress}{360*\insertframestartpage};
-    else% clockwise rotation
-    \pgfmathsetmacro{\progress}{-360*\insertframestartpage};
-    \fi
 
     %% draw the arc
     \draw[color=FLUKA.bg,line width=0.5*\beamer@borderwidth] ([xshift=\beamer@counterradius] logopos) arc (0:\progress:\beamer@counterradius);
