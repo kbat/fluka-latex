@@ -65,6 +65,12 @@
       \subtitle{23rd FLUKA Beginner's Course \\ Lanzhou University \\ Lanzhou, China}
       \date{June 2--7, 2024}}{}
   }{}
+  \IfEq{#1}{MC2024}{%
+    \IfEq{#2}{2024}{%
+      \renewcommand\hostlogo{figs/mc2024.png}
+      \subtitle{SNA+MC\,2024 Workshop Session \\ Le Palais des Congr\`es \\ Paris, France}
+      \date{October 23, 2024}}{}
+  }{}
 }
 
 \NewDocumentCommand\keyword{m}{%
@@ -92,12 +98,35 @@
   \end{tabular}
 }
 
+\NewDocumentCommand\cardwhat{mmmo}{% same as \card but with the WHAT row
+  \def\lineOne{}
+  \foreach \what in {#2} {\protected@xappto\lineOne { & \what}}
+
+  \IfNoValueTF{#4}{}{%
+    \def\lineTwo{}
+    \foreach \what in {#4} {\protected@xappto\lineTwo { & \what}}
+  }
+
+  \hspace*{-2em}
+  \begin{tabular}{lrrrrrrl}
+    & \comment{WHAT1} &  \comment{WHAT2} &  \comment{WHAT3} &  \comment{WHAT4} &  \comment{WHAT5} &  \comment{WHAT6} &  \comment{SDUM} \\
+    \keyword{#1} \lineOne & {\bf #3} \\
+    \IfNoValueTF{#4}{}{%
+      \keyword{#1} \lineTwo & {\bf \&}
+    }
+  \end{tabular}
+}
+
+\renewcommand{\thanks}[2]{%
+  \hfill\textcolor{beamer@barcolor}{[{\tiny \href{#1}{#2}}]}
+}
+
 \NewDocumentCommand\FLUPRO{}{\$FLUPRO\xspace}
 \NewDocumentCommand\FLUTIL{}{\FLUPRO/flutil\xspace}
 
 \pgfplotsset{%
 %  compat=1.18,
-  cycle list = {black,beamer@alertcolor,red},
+  cycle list = {black, beamer@alertcolor, beamer@keywordcolor, red, beamer@barcolor},
   }
 
 
