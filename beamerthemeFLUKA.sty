@@ -11,10 +11,14 @@
 \RequirePackage{xspace}
 \RequirePackage{todonotes}
 \presetkeys{todonotes}{inline}{}
+\RequirePackage{ifthen}
 
 \DeclareOptionBeamer{progressstyle}{\PassOptionsToPackage{progressstyle=#1}{beamerouterthemeFLUKA}}
 \DeclareOptionBeamer{shownavsym}{\PassOptionsToPackage{shownavsym}{beamerouterthemeFLUKA}}
 \ProcessOptionsBeamer
+
+\newboolean{advanced}
+\setboolean{advanced}{true} % set true for advanced courses and false otherwise
 
 \mode<presentation>{% beamer, handout, second, trans (all except the article mode)
   \useinnertheme{FLUKA}
@@ -64,6 +68,9 @@
     \IfEq{#2}{2024}{%
       \subtitle{23rd FLUKA Beginner's Course \\ Lanzhou University \\ Lanzhou, China}
       \date{June 2--7, 2024}}{}
+    \IfEq{#2}{2025}{%
+      \subtitle{6th FLUKA Advanced Course \\ Lanzhou University \\ Lanzhou, China}
+      \date{May 25--31, 2025}}{}
   }{}
   \IfEq{#1}{MC}{%
     \IfEq{#2}{2024}{%
