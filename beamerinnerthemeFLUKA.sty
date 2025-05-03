@@ -89,6 +89,14 @@
   \setbeamertemplate{bibliography item}[text]
   \setbeamertemplate{items}[square]
   \setbeamertemplate{sections/subsections in toc}[square]
+
+  \setbeamertemplate{button}{\tikz
+    \node[
+      inner xsep=3pt,
+      draw=structure!80,
+      fill=structure!50,
+      rounded corners=2pt]  {\footnotesize\insertbuttontext};
+  }
 }
 
 
