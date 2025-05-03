@@ -60,7 +60,8 @@
     \oldhref{#1}{{\usebeamercolor[bg]{FLUKA}#2}}
   }
 
-  \NewDocumentCommand\flukasite{}{\href{http://www.fluka.org}{www.fluka.org}\xspace}
+%  \NewDocumentCommand\flukasite{}{\href{http://www.fluka.org}{www.fluka.org}\xspace}
+  \NewDocumentCommand\flukasite{}{\href{http://www.fluka.org}{www.fluka.org} $\to$ \href{http://www.fluka.eu}{www.fluka.eu}\xspace}
 
 
   \NewDocumentCommand\copyr{mm}{%
@@ -69,8 +70,18 @@
 
   \NewDocumentCommand\finalpage{}{%
     \begin{frame}[plain,noframenumbering]
-%%       \setbeamertemplate{final page}[text]{\oldhref{http://\flukasite}{\flukasite}}
-      \setbeamertemplate{final page}[text]{\flukasite}
+      %%       \setbeamertemplate{final page}[text]{\oldhref{http://\flukasite}{\flukasite}}
+      % temporary for transition peiod:
+      \setbeamertemplate{final page}[text]{%
+        \begin{forest}
+          for tree={edge={beamer@barcolor!60!black, line width=1.5pt}}
+          [\href{http://www.fluka.org}{www.fluka.org}
+            [\comment{in the near future}, font=\footnotesize
+              [\href{http://www.fluka.eu}{www.fluka.eu}, edge=-stealth]
+            ]
+          ]
+        \end{forest}
+      }
       \usebeamertemplate{final page}
     \end{frame}
   }
