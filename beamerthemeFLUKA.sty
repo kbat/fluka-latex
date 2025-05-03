@@ -18,13 +18,38 @@
 \ProcessOptionsBeamer
 
 \newboolean{advanced}
-\setboolean{advanced}{true} % set true for advanced courses and false otherwise
+\setboolean{advanced}{false} % set true for advanced courses and false otherwise
 
 \mode<presentation>{% beamer, handout, second, trans (all except the article mode)
   \useinnertheme{FLUKA}
   \useoutertheme{FLUKA}
   \usecolortheme{FLUKA}
 }
+
+\AtBeginSection[]{%
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+%% \setbeamertemplate{subsection page}{
+%%   \begin{centering}
+%%     \begin{beamercolorbox}[sep=12pt,center]{part title}
+%%       \usebeamerfont{subsection name}\insertsection\par
+%%       \usebeamerfont{subsection title}\insertsubsection\par
+%%     \end{beamercolorbox}
+%%     asdf
+%%   \end{centering}
+%% }
+
+\AtBeginSubsection[]{%
+%%     \frame{\subsectionpage}
+  \begin{frame}{\secname}
+    \centering
+    \huge\subsecname
+  \end{frame}
+}
+
 
 \NewDocumentCommand\showfont{}{%
   \makeatletter
@@ -131,10 +156,24 @@
 \NewDocumentCommand\FLUPRO{}{\$FLUPRO\xspace}
 \NewDocumentCommand\FLUTIL{}{\FLUPRO/flutil\xspace}
 
+% coordinate grid for labeling tikz images
+\newcommand\gridlines{%
+  \draw[help lines, xstep=.1, ystep=.1] (0,0) grid (2,1);
+  \foreach \x in {0,1,...,9} {
+    \node [anchor=north] at (\x/10, 0) {0.\x};
+  }
+  \foreach \x in {10,11,...,19} {
+    \node [anchor=north] at (\x/10, 0) {\x};
+  }
+  \foreach \y in {0,1,...,9} {
+    \node [anchor=east]  at (0, \y/10) {0.\y};
+  }
+}
+
+
 \pgfplotsset{%
 %  compat=1.18,
   cycle list = {black, beamer@alertcolor, beamer@keywordcolor, red, beamer@barcolor},
   }
-
 
 \mode<all>
