@@ -95,6 +95,7 @@
       \subtitle{23rd FLUKA Beginner's Course \\ Lanzhou University \\ Lanzhou, China}
       \date{June 2--7, 2024}}{}
     \IfEq{#2}{2025}{%
+      \setboolean{advanced}{true}
       \subtitle{6th FLUKA Advanced Course \\ Lanzhou University \\ Lanzhou, China}
       \date{May 25--31, 2025}}{}
   }{}
@@ -111,7 +112,7 @@
 }
 
 \NewDocumentCommand\comment{m}{%
-  \textcolor{beamer@barcolor!60!black}{#1}\xspace
+  \textcolor{beamer@commentcolor}{#1}\xspace
 }
 
 \NewDocumentCommand\card{mmmo}{%
