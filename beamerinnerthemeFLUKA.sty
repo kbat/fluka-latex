@@ -19,6 +19,7 @@
       %          {\usebeamerfont{institute}\insertinstitute}\vspace*{30pt}
 
       \begin{center}
+        \setlength{\baselineskip}{2em}
         {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
       \end{center}
 
@@ -30,9 +31,9 @@
         \vspace*{\baselineskip}
       \end{flushright}
 
-%      \vspace*{30pt}
+      \vfill
 
-%          {\usebeamerfont{author}\insertauthor}\vspace*{30pt}
+      \ifx\author\empty\else{\usebeamerfont{author}\usebeamercolor[fg]{subtitle}\insertauthor}\fi
 
     \end{minipage}
     \setcounter{page}{0}
