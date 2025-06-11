@@ -51,6 +51,18 @@
   \end{frame}
 }
 
+\AtBeginSubsubsection[]{%
+%%     \frame{\subsectionpage}
+  \begin{frame}{\secname}
+    \centering
+    \huge\subsecname
+
+    \bigskip
+
+    \Large\subsubsecname
+  \end{frame}
+}
+
 
 \NewDocumentCommand\showfont{}{%
   \makeatletter
@@ -104,6 +116,11 @@
       \renewcommand\hostlogo{figs/mc2024.png}
       \subtitle{SNA+MC\,2024 Workshop Session \\ Le Palais des Congr\`es \\ Paris, France}
       \date{October 23, 2024}}{}
+  }{}
+  \IfEq{#1}{RadSynch}{%
+    \IfEq{#2}{2025}{%
+      \subtitle{12th International Workshop on Radiation Safety \\ at Synchrotron Radiation Sources~--- RadSynch25 \\ CNPEM, Campinas, Brazil}
+      \date{June, 24--27, 2025}}{}
   }{}
 }
 
